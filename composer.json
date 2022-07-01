@@ -1,0 +1,28 @@
+{
+  "name": "localzet/auth",
+  "description": "FrameX Auth Plugin",
+  "type": "library",
+  "keywords": [
+    "localzet"
+  ],
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "localzet",
+      "email": "creator@localzet.ru",
+      "homepage": "https://www.localzet.ru",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "creator@localzet.ru"
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "localzet\\Auth\\": "src"
+    }
+  }
+}
