@@ -10,7 +10,7 @@ class Install
      * @var array
      */
     protected static $pathRelation = array(
-        'config/plugin/localzet/auth' => 'config/plugin/localzet/auth',
+        'config/plugin/framex/auth' => 'config/plugin/framex/auth',
     );
 
     /**
