@@ -18,7 +18,7 @@ class AuthManager
      */
     public function guard(string $name = null): GuardInterface
     {
-        $name = $name ?? config('plugin.localzet.auth.auth.default');
+        $name = $name ?? config('plugin.framex.auth.auth.default');
         if (!isset($this->guards[$name])) {
             $this->guards[$name] = $this->createGuard($this->getConfig($name));
         }
@@ -34,7 +34,7 @@ class AuthManager
      */
     protected function getConfig(string $name): array
     {
-        $key = "plugin.localzet.auth.auth.guards.{$name}";
+        $key = "plugin.framex.auth.auth.guards.{$name}";
         $config = config($key);
         if (!$config) {
             throw new InvalidArgumentException($key . ' не существует');

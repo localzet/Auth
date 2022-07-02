@@ -9,7 +9,7 @@ use localzet\JWT\JwtToken;
 use localzet\FrameX\Http\Request;
 
 /**
- * localzet\JWT 认证方式
+ * localzet\JWT
  * @link https://github.com/localzet/JWT
  */
 class JwtMethod extends BaseMethod
@@ -21,7 +21,7 @@ class JwtMethod extends BaseMethod
         parent::__construct($identity, $config);
 
         if (!class_exists('localzet\JWT\JwtToken')) {
-            throw new InvalidArgumentException('请先安装 localzet/jwt: composer require localzet/jwt');
+            throw new InvalidArgumentException('composer require localzet/jwt');
         }
     }
 
