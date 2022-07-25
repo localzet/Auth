@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @version     1.0.0-dev
+ * @package     FrameX (FX) Authentication Plugin
+ * @link        https://localzet.gitbook.io
+ * 
+ * @author      localzet <creator@localzet.ru>
+ * 
+ * @copyright   Copyright (c) 2018-2020 Zorin Projects 
+ * @copyright   Copyright (c) 2020-2022 NONA Team
+ * 
+ * @license     https://www.localzet.ru/license GNU GPLv3 License
+ */
+
 namespace localzet\Auth\Authentication\Method;
 
 use localzet\Auth\Interfaces\AuthenticationMethodInterface;
@@ -10,7 +23,6 @@ use localzet\FrameX\Http\Request;
 abstract class BaseMethod implements AuthenticationMethodInterface
 {
     protected IdentityRepositoryInterface $identityRepository;
-    protected ?string $tokenType = null;
 
     public function __construct(IdentityRepositoryInterface $identityRepository, array $config = [])
     {
@@ -25,9 +37,11 @@ abstract class BaseMethod implements AuthenticationMethodInterface
      */
     public function authenticate(Request $request): ?IdentityInterface
     {
-        if ($token = $this->getAuthData($request)) {
+
+        if ($user_id = $this->getAuthData($request)) {
+
             // Возвращает личность по id
-            return $this->identityRepository->findIdentity($token, $this->tokenType);
+            return $this->identityRepository->findIdentity($user_id);
         }
 
         return null;

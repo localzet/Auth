@@ -1,7 +1,20 @@
 <?php
 
+/**
+ * @version     1.0.0-dev
+ * @package     FrameX (FX) Authentication Plugin
+ * @link        https://localzet.gitbook.io
+ * 
+ * @author      localzet <creator@localzet.ru>
+ * 
+ * @copyright   Copyright (c) 2018-2020 Zorin Projects 
+ * @copyright   Copyright (c) 2020-2022 NONA Team
+ * 
+ * @license     https://www.localzet.ru/license GNU GPLv3 License
+ */
+
 // identityRepository
-use app\model\User;
+use app\repository\Users;
 
 use localzet\Auth\Interfaces\IdentityRepositoryInterface;
 
@@ -26,7 +39,7 @@ return [
         'user' => [
             'class' => localzet\Auth\Guard\Guard::class,
             'identityRepository' => function () {
-                return new User();
+                return new Users();
             },
             'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
                 return new JwtMethod($identityRepository);
